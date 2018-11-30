@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authenticationService.loginWithEmail,(this.email, this.password).then( (data) => {
+    this.authenticationService.loginWithEmail(this.email, this.password).then( (data) => {
       alert('Loggeado correctamente');
       console.log(data);
       this.router.navigate(['home']);

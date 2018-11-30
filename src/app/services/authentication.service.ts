@@ -7,8 +7,8 @@ import {AngularFireAuth} from "angularfire2/auth";
 export class AuthenticationService {
 
   constructor(private angularFireAuth: AngularFireAuth ) { }
-    loginWithEmail (email: string , password: string){
-  this.angularFireAuth.auth.signInWithEmailAndPassword(email ,password);
+    loginWithEmail(email: string , password: string){
+      return  this.angularFireAuth.auth.signInWithEmailAndPassword(email ,password);
 
     }
     registerWithEmail(email: string, password: string){
