@@ -1,4 +1,9 @@
 <app-menu *ngIf="router.url != '/login'"></app-menu>
 <div [ngClass]="{'generalContent': router.url != '/login'}">
+  <ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.name}}
+  </li>
+</ul>
   <router-outlet></router-outlet>
 </div>

@@ -5,17 +5,22 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ConversationComponent } from './conversation/conversation.component';
 import { ProfileComponent } from './profile/profile.component';
-import {Routes, RouterModule} from "@angular/router";
+import {RouterModule, Routes} from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
-import { SearchPipe } from './pipe/search';
-import  {FormsModule} from "@angular/forms";
+import {SearchPipe} from './pipe/search';
+import {FormsModule} from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
 const appRoutes: Routes = [
-  {path: '' ,  component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'conversation/:uid', component: ConversationComponent},
   {path: 'profile', component: ProfileComponent}
-
 ];
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule // imports firebase/storage only needed for storage features
+
   ],
   providers: [],
   bootstrap: [AppComponent]

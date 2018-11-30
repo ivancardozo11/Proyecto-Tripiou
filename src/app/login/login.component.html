@@ -2,32 +2,26 @@
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col-md-3">
-        <div class="avatarFrameOffline mt-3 mb-3">
-          <img src="assets/img/generic_avatar.png"class="avatarImage img-fluid"/>
+        <div class="avatarFrameoffline marto15 marbo15">
+          <img src="assets/img/generic_avatar.png" class="avatarImage img-fluid">
         </div>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col-md-6">
-        <div class="text-center">
-          <h3>Iniciar sesi&oacute;n</h3>
+        <div class="center">
+          <h3>Iniciar Sesion</h3>
         </div>
-        <p *ngIf="operation == 'register'">Ya tienes cuenta? Has <a class="text-primary" (click)="operation= 'login'">Login</a>
-        </p>
-        <p *ngIf="operation == 'login'">No tienes cuenta? <a class="text-primary" (click)="operation='register'">Registrarse</a>
-        </p>
-        <div class="border">
-          <div class="mr-2 ml-2 mt-2 mb-2">
-            <input type="email" placeholder="Ingresa tu E-mail"class="form-control"/>
-            <br/>
-            <input type="password" placeholder="Ingresa tu Contrase&ntilde;a"class="form-control"/>
-            <br/>
-            <input *ngIf="operation == 'register'"type="text" placeholder="Ingresa tu Nick"class="form-control"/>
-          </div>
+        <p *ngIf="operation == 'register'">Ya tienes cuenta? Has <a (click)="operation = 'login'">Login</a></p>
+        <p *ngIf="operation == 'login'">No tienes cuenta? <a (click)="operation = 'register'">Registrarse</a></p>
+        <div class="boreredContainer">
+          <input [(ngModel)]="email" class="form-control marbo15" type="email" placeholder="Ingrese Email" />
+          <input [(ngModel)]="password" class="form-control marbo15" type="password" placeholder="Ingrese Contrasenna" />
+          <input [(ngModel)]="nick" *ngIf="operation == 'register'" class="form-control marbo15" type="text" placeholder="Ingrese Nick" />
         </div>
-        <div class="text-center mt-2">
-          <a *ngIf="operation == 'login'"class="btn btn-success">IniciarSesi&oacute;n</a>
-          <a *ngIf="operation == 'register'"class="btn btn-success">Registrarme</a>
+        <div class="center marto15">
+          <a (click)="login()" *ngIf="operation == 'login'" class="btn btn-primary">Iniciar Sesion</a>
+          <a (click)="register()" *ngIf="operation == 'register'" class="btn btn-primary">Registrarme</a>
         </div>
       </div>
     </div>
