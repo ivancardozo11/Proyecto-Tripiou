@@ -3,3 +3,10 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+a{
+  color: blue !important;
+}
+a:hover{
+  color: lightblue!important;
+}
