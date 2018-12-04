@@ -4,6 +4,7 @@ import {User} from '../interfaces/user';
 import {UserService} from '../services/user.service';
 import { ConversationService } from '../services/conversation.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-conversation',
@@ -75,9 +76,12 @@ doZumbido(){
     this.shake = false;
   },1000);
 }
+
+
 getConversation(){
 this.conversationService.getConversation(this.conversation_id).valueChanges().subscribe((data) =>{
   this.conversation = data;
+
   this.conversation.forEach((message) =>{
     if(!message.seen){
       message.seen = true;
@@ -86,10 +90,10 @@ this.conversationService.getConversation(this.conversation_id).valueChanges().su
       if (message.type == 'text'){
         const audio = new Audio('assets/sound/new_message.m4a');
         audio.play();
-      }else if(message.type == 'text'){
+      }else if(message.type == 'zumbido'){
         this.doZumbido();
-
       }
+    
     }
   });
 
