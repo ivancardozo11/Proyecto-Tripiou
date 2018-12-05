@@ -3,6 +3,7 @@ import {DialogComponent, DialogService} from 'ng2-bootstrap-modal';
 import {UserService} from '../../services/user.service';
 import {RequestsService} from '../../services/requests.service';
 
+
 export interface PromptModel {
   scope: any;
   currentRequest: any;
@@ -16,9 +17,12 @@ export class RequestComponent extends DialogComponent<PromptModel, any> implemen
   scope: any;
   shouldAdd: string = 'yes';
   currentRequest: any;
-  constructor(public dialogService: DialogService, private userService: UserService, private requestsService: RequestsService) {
+  constructor(public dialogService: DialogService,
+    private userService: UserService,
+    private requestsService: RequestsService) {
     super(dialogService);
   }
+
   accept() {
     if (this.shouldAdd == 'yes') {
       this.requestsService.setRequestStatus(this.currentRequest, 'accepted').then((data) => {

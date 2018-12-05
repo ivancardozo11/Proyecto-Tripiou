@@ -10,8 +10,9 @@
           <img src="assets/img/generic_avatar.png" class="img-fluid" />
         </div>
         <div class="col-md-9">
-          <b>{{currentRequest.sender}}</b>
-          <small>Te ha enviado esta solicitud</small>
+          <b>{{currentRequest.receiver_email}}</b>
+          <br />
+          <small>Te ha enviado esta solicitud!!!</small>
         </div>
         <hr />
         <div class="col-md-12">
@@ -21,7 +22,7 @@
 
           <input type="radio" name="addToMsn" [(ngModel)]="shouldAdd" value="no" id="add-no"> <label for="add-no">No quiero agregarlo</label> <br />
 
-          <input type="radio" name="addToMsn" [(ngModel)]="shouldAdd" value="later" id="add-later"> <label for="add-later">Decido despuees</label> <br />
+          <input type="radio" name="addToMsn" [(ngModel)]="shouldAdd" value="later" id="add-later"> <label for="add-later">Decido despues</label> <br />
         </div>
       </div>
     </div>
